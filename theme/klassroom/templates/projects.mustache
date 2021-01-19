@@ -1,0 +1,59 @@
+<!-- Start Project Section -->
+{{#displayprojectsection}}
+<div class="projects">
+   <div class="container">
+      {{#projecttagline}}
+      <h6>{{{projecttagline}}}</h6>
+      {{/projecttagline}}
+      {{#projectheading}}
+      <h2>{{{projectheading}}}</h2>
+      {{/projectheading}}
+      <div class="row">
+         {{#displayproject1box}}
+         <div class="col-lg-4 col-md-4 col-sm-12 cus hvr-float-shadow">
+            {{#project1title}}
+            <h3>{{{project1title}}}</h3>
+            {{/project1title}}
+            {{#project1description}}
+            <p>{{{project1description}}}</p>
+            {{/project1description}}
+            {{#project1readmore}}
+            <a href="{{{project1readmoreurl}}}">{{{project1readmore}}} <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+            {{/project1readmore}}
+         </div>
+         {{/displayproject1box}}
+         {{#displayproject2box}}
+         <div class="col-lg-4 col-md-4 col-sm-12 cus hvr-float-shadow">
+            {{#project2title}}
+            <h3>{{{project2title}}}</h3>
+            {{/project2title}}
+            {{#project2description}}
+            <p>{{{project2description}}}</p>
+            {{/project2description}}
+            {{#project2readmore}}
+            <a href="{{{project2readmoreurl}}}">{{{project2readmore}}} <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+            {{/project2readmore}}
+         </div>
+         {{/displayproject2box}}
+         {{#displayproject3box}}
+         <div class="col-lg-4 col-md-4 col-sm-12 cus hvr-float-shadow">
+            {{#project3title}}
+            <h3>{{{project3title}}}</h3>
+            {{/project3title}}
+            {{#project3description}}
+            <p>{{{project3description}}}</p>
+            {{/project3description}}
+            {{#project3readmore}}
+            <a href="{{{project3readmoreurl}}}">{{{project3readmore}}} <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+            {{/project3readmore}}
+         </div>
+         {{/displayproject3box}}
+         <div class="col-lg-12 col-md-12 col-sm-12 full">
+            <a href="#"><img src="{{{projectaddbanner}}}" /></a>
+         </div>
+         <div class="clearfix"></div>
+      </div>
+   </div>
+</div>
+{{/displayprojectsection}}
+<!-- End Project Section -->

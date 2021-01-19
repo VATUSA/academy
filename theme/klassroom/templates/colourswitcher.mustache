@@ -1,0 +1,39 @@
+<!-- Start Colour Switcher Section -->
+{{#displaycolourswitchersection}}
+<div id="colourswitcher">
+   <input type="checkbox" id="navigation2" />
+   <label for="navigation2" class="slideblocklabel"><i class="fa fa-paint-brush"></i></label>
+   <nav class="slideblock">
+      {{#colourswitcherheading}}
+      <span class="title">{{{colourswitcherheading}}}</span>
+      {{/colourswitcherheading}}
+      {{#colourswitchertagline}}
+      <span class="title2">{{{colourswitchertagline}}}</span>
+      {{/colourswitchertagline}}
+      <ul class="clearfix">
+         <li><a href="{{wwwroot}}./?klassroomcolour=blue" class="styleswitch
+            colour-blue"><img src="{{config.wwwroot}}/theme/klassroom/pix/blue-theme2.png" alt="blue" /></a></li>
+         <li><a href="{{wwwroot}}./?klassroomcolour=lightblue"
+            class="styleswitch colour-lightblue"><img src="{{config.wwwroot}}/theme/klassroom/pix/lightblue-theme2.png"
+            alt="lightblue" /></a></li>
+         <li><a href="{{wwwroot}}./?klassroomcolour=red"
+            class="styleswitch colour-red"><img src="{{config.wwwroot}}/theme/klassroom/pix/red-theme2.png"
+            alt="red" /></a></li>
+         <li><a href="{{wwwroot}}./?klassroomcolour=green"
+            class="styleswitch colour-green"><img src="{{config.wwwroot}}/theme/klassroom/pix/green-theme2.png"
+            alt="green" /></a></li>
+         <li><a href="{{wwwroot}}./?klassroomcolour=yellow"
+            class="styleswitch colour-yellow"><img src="{{config.wwwroot}}/theme/klassroom/pix/yellow-theme2.png"
+            alt="yellow" /></a></li>
+         <li><a href="{{wwwroot}}./?klassroomcolour=purple"
+            class="styleswitch colour-purple"><img src="{{config.wwwroot}}/theme/klassroom/pix/purple-theme2.png"
+            alt="purple" /></a></li>
+         <div class="clearfix"></div>
+      </ul>
+      {{#colourswitcherdescription}}
+      <p>{{{colourswitcherdescription}}}</p>
+      {{/colourswitcherdescription}}
+   </nav>
+</div>
+{{/displaycolourswitchersection}}
+<!-- End Colour Switcher Section -->

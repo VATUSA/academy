@@ -1,0 +1,68 @@
+{{>theme_klassroom/blocks}}
+{{#displayslidersection}}
+<!-- Start Slider Section -->
+<div class="stage" dir="ltr">
+   <div id="SLDR-ONE" class="sldr">
+      <ul class="wrp animate">
+         <li class="elmnt-one">
+            <div class="skew">
+               <div class="wrap"><img src="{{{slider1image}}}" width="1000" height="563"/></div>
+            </div>
+         </li>
+         <li class="elmnt-two">
+            <div class="skew">
+               <div class="wrap"><img src="{{{slider2image}}}" width="1000" height="563"/></div>
+            </div>
+         </li>
+         <li class="elmnt-three">
+            <div class="skew">
+               <div class="wrap"><img src="{{{slider3image}}}" width="1000" height="563"/></div>
+            </div>
+         </li>
+         <li class="elmnt-four">
+            <div class="skew">
+               <div class="wrap"><img src="{{{slider4image}}}" width="1000" height="563"/></div>
+            </div>
+         </li>
+      </ul>
+   </div>
+   <div class="clearfix"></div>
+   <div class="captions">
+      <div class="focalPoint">
+         {{#slider1caption}}
+         <p>{{{slider1caption}}}</p>
+         {{/slider1caption}}
+         {{#slider1heading}}
+         {{{slider1heading}}}
+         {{/slider1heading}}
+      </div>
+      <div>
+         {{#slider2caption}}
+         <p>{{{slider2caption}}}</p>
+         {{/slider2caption}}
+         {{#slider2heading}}
+         {{{slider2heading}}}
+         {{/slider2heading}}
+      </div>
+      <div>
+         {{#slider3caption}}
+         <p>{{{slider3caption}}}</p>
+         {{/slider3caption}}
+         {{#slider3heading}}
+         {{{slider3heading}}}
+         {{/slider3heading}}
+      </div>
+      <div>
+         {{#slider4caption}}
+         <p>{{{slider4caption}}}</p>
+         {{/slider4caption}}
+         {{#slider4heading}}
+         {{{slider4heading}}}
+         {{/slider4heading}}
+      </div>
+   </div>
+   <button class="sldr-prv sldr-nav prev"></button>
+   <button class="sldr-nxt sldr-nav next"></button>
+</div>
+<!-- End Slider Section -->
+{{/displayslidersection}}

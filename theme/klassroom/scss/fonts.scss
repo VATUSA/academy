@@ -1,0 +1,19 @@
+@charset "utf-8";
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: "Montserrat";
+  src: 	url([[font:theme|Montserrat-Regular.ttf]]) format("truetype"),
+  		url([[font:theme|montserrat-regular-webfont.woff2]]) format("woff2"),
+  		url([[font:theme|montserrat-regular-webfont.woff]]) format("woff"),
+}
+
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: "OpenSans";
+  src:  url([[font:theme|OpenSans-Regular.ttf]]) format("truetype"),
+  		url([[font:theme|opensans-regular-webfont.woff2]]) format("woff2"),
+  		url([[font:theme|opensans-regular-webfont.woff]]) format("woff"),
+
+}

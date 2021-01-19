@@ -1,0 +1,38 @@
+<!-- Start News section -->
+<div id="news">
+   <div class="container">
+      <div class="row">
+         <div class="news-col8 col-lg-8 col-md-12 col-sm-12">
+         </div>
+         {{#displayfeaturedpostssection}}
+         <div class="featuredpost-col4 col-lg-4 col-md-12 col-sm-12">
+            {{#featuredposttagline}}
+            <h6>{{{featuredposttagline}}}</h6>
+            {{/featuredposttagline}}
+            {{#featuredpostheading}}
+            <h2>{{{featuredpostheading}}}</h2>
+            {{/featuredpostheading}}
+            <a href="{{{featuredposturl}}}"><img class="picture" src="{{{featuredpostimage}}}" alt="blog-image" /></a>
+            {{#featuredposttitle}}
+            <h5><a href="{{{featuredposturl}}}">{{{featuredposttitle}}}</a></h5>
+            {{/featuredposttitle}}
+            {{#featuredposttags}}
+            <span class="tags">
+            {{{featuredposttags}}}
+            </span>
+            {{/featuredposttags}}
+            {{#featuredpostdate}}
+            <span class="post_date"><i class="fa fa-clock-o"></i> {{{featuredpostdate}}}</span>
+            {{/featuredpostdate}}
+            {{#featuredpostdescription}}
+            <p>{{{featuredpostdescription}}}</p>
+            {{/featuredpostdescription}}
+            {{#featuredpostbuttontext}}
+            <a href="{{{featuredpostbuttonurl}}}" class="btn btn-lg">{{{featuredpostbuttontext}}}</a>
+            {{/featuredpostbuttontext}}
+         </div>
+         {{/displayfeaturedpostssection}}
+      </div>
+   </div>
+</div>
+<!-- End News section -->

@@ -1,0 +1,146 @@
+{{!
+Page footer.
+}}
+<!-- Start Clients Logo section -->
+{{#displayclientlogoarea}}
+<div class="clients-logo">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-lg-2 col-md-2 col-sm-12 logocl">
+            <img src="{{{clientlogo1}}}" alt="client-logo-1" />
+         </div>
+         <div class="col-lg-2 col-md-2 col-sm-12 logocl">
+            <img src="{{{clientlogo2}}}" alt="client-logo-2" />
+         </div>
+         <div class="col-lg-2 col-md-2 col-sm-12 logocl">
+            <img src="{{{clientlogo3}}}" alt="client-logo-3" />
+         </div>
+         <div class="col-lg-2 col-md-2 col-sm-12 logocl">
+            <img src="{{{clientlogo4}}}" alt="client-logo-4" />
+         </div>
+         <div class="col-lg-2 col-md-2 col-sm-12 logocl">
+            <img src="{{{clientlogo5}}}" alt="client-logo-5" />
+         </div>
+         <div class="col-lg-2 col-md-2 col-sm-12 logocl">
+            <img src="{{{clientlogo6}}}" alt="client-logo-6" />
+         </div>
+      </div>
+   </div>
+</div>
+{{/displayclientlogoarea}}
+<!-- End Clients Logo section -->
+<!-- Start Footer Section -->
+<footer id="page-footer">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-3 col-md-6 col-sm-12 footersection">
+            <img class="footer-logo" src="{{{footerlogo}}}" alt="footer-logo" >
+            {{#footersection1description}}
+            <p>{{{footersection1description}}}</p>
+            {{/footersection1description}}
+         </div>
+         <div class="col-lg-3 col-md-6 col-sm-12 footersection">
+            <ul>
+               <li>
+                  {{#footersection2heading}}
+                  <h5>{{{footersection2heading}}}</h5>
+                  {{/footersection2heading}}
+                  <ul class="common">
+                     {{#footersection2link1}}
+                     <li><a href="{{{footersection2link1url}}}">{{{footersection2link1}}}</a></li>
+                     {{/footersection2link1}}
+                     {{#footersection2link2}}
+                     <li><a href="{{{footersection2link2url}}}">{{{footersection2link2}}}</a></li>
+                     {{/footersection2link2}}
+                     {{#footersection2link3}}
+                     <li><a href="{{{footersection2link3url}}}">{{{footersection2link3}}}</a></li>
+                     {{/footersection2link3}}
+                     {{#footersection2link4}}
+                     <li><a href="{{{footersection2link4url}}}">{{{footersection2link4}}}</a></li>
+                     {{/footersection2link4}}
+                     {{#footersection2link5}}
+                     <li><a href="{{{footersection2link5url}}}">{{{footersection2link5}}}</a></li>
+                     {{/footersection2link5}}
+                  </ul>
+               </li>
+            </ul>
+         </div>
+         <div class="col-lg-3 col-md-6 col-sm-12 footersection">
+            <ul>
+               <li>
+                  {{#footersection3heading}}
+                  <h5>{{{footersection3heading}}}</h5>
+                  {{/footersection3heading}}
+                  <ul class="common">
+                     {{#footersection3link1}}
+                     <li><a href="{{{footersection3link1url}}}">{{{footersection3link1}}}</a></li>
+                     {{/footersection3link1}}
+                     {{#footersection3link2}}
+                     <li><a href="{{{footersection3link2url}}}">{{{footersection3link2}}}</a></li>
+                     {{/footersection3link2}}
+                     {{#footersection3link3}}
+                     <li><a href="{{{footersection3link3url}}}">{{{footersection3link3}}}</a></li>
+                     {{/footersection3link3}}
+                     {{#footersection3link4}}
+                     <li><a href="{{{footersection3link4url}}}">{{{footersection3link4}}}</a></li>
+                     {{/footersection3link4}}
+                     {{#footersection3link5}}
+                     <li><a href="{{{footersection3link5url}}}">{{{footersection3link5}}}</a></li>
+                     {{/footersection3link5}}
+                  </ul>
+               </li>
+            </ul>
+         </div>
+         <div class="col-lg-3 col-md-6 col-sm-12 footersection">
+            <ul>
+               <li>
+                  {{#footersection4heading}}
+                  <h5>{{{footersection4heading}}}</h5>
+                  {{/footersection4heading}}
+                  <ul class="common">
+                     {{#footersection4link1}}
+                     <li><a href="{{{footersection4link1url}}}">{{{footersection4link1}}}</a></li>
+                     {{/footersection4link1}}
+                     {{#footersection4link2}}
+                     <li><a href="{{{footersection4link2url}}}">{{{footersection4link2}}}</a></li>
+                     {{/footersection4link2}}
+                     {{#footersection4link3}}
+                     <li><a href="{{{footersection4link3url}}}">{{{footersection4link3}}}</a></li>
+                     {{/footersection4link3}}
+                     {{#footersection4link4}}
+                     <li><a href="{{{footersection4link4url}}}">{{{footersection4link4}}}</a></li>
+                     {{/footersection4link4}}
+                     {{#footersection4link5}}
+                     <li><a href="{{{footersection4link5url}}}">{{{footersection4link5}}}</a></li>
+                     {{/footersection4link5}}
+                  </ul>
+               </li>
+            </ul>
+         </div>
+         <div class="clearfix"></div>
+      </div>
+      <div class="bottom-footer">
+         <div id="course-footer">{{{ output.course_footer }}}</div>
+         <!-- Start Custom Menu -->
+         <nav class="nav navbar-nav d-md-none" aria-label="{{#str}}custommenu, admin{{/str}}">
+            {{# output.custom_menu_flat }}
+            <ul class="list-unstyled pt-3">
+               {{> theme_boost/custom_menu_footer }}
+            </ul>
+            {{/ output.custom_menu_flat }}
+         </nav>
+         <!-- End Custom Menu-->
+         {{{ output.standard_footer_html }}}
+         {{{ output.standard_end_of_body_html }}}
+      </div>
+      <!-- Start Back To Top -->
+      {{#backtotop}}
+      <div id="backtotop" style="display: none;"> 
+         <a class="scrollup" href="javascript:void(0);" title="Go to top">
+         </a>
+      </div>
+      {{/backtotop}}
+      <!-- End Back To Top -->
+   </div>
+</footer>
+<!-- End Footer Section -->

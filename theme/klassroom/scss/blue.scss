@@ -1,0 +1,87 @@
+/* Site blue color
+----------------------*/
+
+.klassroom-blue .top-page-header,
+.klassroom-blue .btn-primary,
+.klassroom-blue .nav-pills .nav-link.active,
+.klassroom-blue .nav-pills .show>.nav-link,
+.klassroom-blue .page-item.active .page-link,
+.klassroom-blue .message-app.drawer .card-header,
+.klassroom-blue .top-page-header,
+.klassroom-blue .announcement,
+.klassroom-blue .forumpost .body-content-container .post-actions a.btn-link,
+.klassroom-blue .block_calendar_month .card-body table thead th,
+.klassroom-blue .clients-logo,
+.klassroom-blue .block_recentlyaccessedcourses .paging-bar-container .page-item,
+.klassroom-blue .block_recentlyaccessedcourses .paging-bar-container .page-item:hover,
+.klassroom-blue .dropdown-item:active,
+.klassroom-blue .dropdown-item.active,
+body#page-course-index-category.klassroom-blue #coursesearch,
+body#page-calendar-view.klassroom-blue section#region-main .maincalendar .controls {
+  background-color: $siteblcolor;
+}
+
+.klassroom-blue a,
+.klassroom-blue .text-primary,
+.klassroom-blue .btn-link,
+body#page-admin-theme-index.klassroom-blue .well h2 {
+  color: $siteblcolor;
+}
+
+
+/* Site Orange Color
+-----------------------*/
+
+.klassroom-blue .message-app.drawer .nav-link.active,
+.klassroom-blue .message-app.drawer .dropdown-item:active,
+.klassroom-blue .top-page-header .navbar .navbar-brand,
+.klassroom-blue .announcement .con-buttons .btn-lg,
+.klassroom-blue .searchcourses form#coursesearch button.btn-secondary,
+.klassroom-blue .searchcourses form#coursesearch button.btn-secondary:hover,
+.klassroom-blue .events a.btn,
+.klassroom-blue .projects .cus:nth-child(3),
+.klassroom-blue .block-section label.slideblocklabel,
+.klassroom-blue #colourswitcher label.slideblocklabel,
+.klassroom-blue .photogallery .owl-carousel .owl-nav .owl-prev span:hover,
+.klassroom-blue .photogallery .owl-carousel .owl-nav .owl-next span:hover {
+  background-color: $siteorcolor;
+}
+
+.klassroom-blue .announcement .con-buttons .btn-lg,
+.klassroom-blue .searchcourses form#coursesearch button.btn-secondary,
+.klassroom-blue .searchcourses form#coursesearch button.btn-secondary:hover,
+.klassroom-blue .owl-carousel .owl-dots button.owl-dot.active {
+  border-color: $siteorcolor;
+}
+
+body#page-course-index-category.klassroom-blue .coursebox {
+  border-left-color: $siteorcolor !important;
+}
+
+.klassroom-blue a:hover,
+.klassroom-blue a:active,
+.klassroom-blue a:focus,
+.klassroom-blue .top-page-header .navbar ul.navbar-nav li a.nav-link:hover,
+.klassroom-blue .top-page-header .navbar ul.navbar-nav li a.nav-link:active,
+.klassroom-blue .top-page-header .navbar ul.navbar-nav li a.nav-link:focus,
+.klassroom-blue .stage .captions h1 span,
+.klassroom-blue #news #site-news-forum .subscribelink a:before,
+.klassroom-blue #news #site-news-forum .subscribelink a:hover,
+.klassroom-blue #news #site-news-forum .subscribelink a:active,
+.klassroom-blue #news #site-news-forum .subscribelink a:focus,
+.klassroom-blue #news #site-news-forum .btn.btn-primary[data-toggle="collapse"]:before,
+.klassroom-blue #news #site-news-forum .btn.btn-primary[data-toggle="collapse"]:hover,
+.klassroom-blue #news #site-news-forum .btn.btn-primary[data-toggle="collapse"]:active,
+.klassroom-blue #news #site-news-forum .btn.btn-primary[data-toggle="collapse"]:focus,
+.klassroom-blue .forumpost .header address time::before,
+.klassroom-blue .projects .custom-project span,
+.klassroom-blue #page-footer ul li li a:hover,
+.klassroom-blue #page-footer ul li li a:active,
+.klassroom-blue #page-footer ul li li a:focus,
+.klassroom-blue #page-footer ul li li a:hover::before,
+.klassroom-blue #page-footer ul li li a:active::before,
+.klassroom-blue #page-footer ul li li a:focus::before,
+body.dir-rtl.klassroom-blue #page-footer ul li li a:hover:after,
+body#page-calendar-view.klassroom-blue section#region-main .maincalendar .calendartable td.today {
+  color: $siteorcolor;
+}

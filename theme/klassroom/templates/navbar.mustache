@@ -1,0 +1,163 @@
+{{!
+@template theme_klassroom/navbar
+This template renders the top navbar.
+Example context (json):
+{
+"output": {
+"should_display_navbar_logo": true,
+"get_compact_logo_url": "http://example.com/image.png",
+"custom_menu": "
+<li>..</li>
+",
+"page_heading_menu": "
+<li>..</li>
+",
+"search_box": "
+<div><input type='text'></div>
+",
+"navbar_plugin_output": "
+<div class='dropdown'>Messaging</div>
+",
+"user_menu": "
+<div class='dropdown'>John Doe</div>
+"
+},
+"config": {
+"wwwroot": "#"
+},
+"sitename": "Moodle Site"
+}
+}}
+<div class="top-header">
+   <div class="container">
+      <div class="row">
+         <ul class="top-left col-lg-6 col-md-6 col-sm-12">
+            {{#hasfacebook}}
+            <li>
+               <a href="{{{hasfacebook}}}" target="_blank">
+               <i class="fa fa-facebook"></i>
+               </a>
+            </li>
+            {{/hasfacebook}}
+            {{#hastwitter}}
+            <li>
+               <a href="{{{hastwitter}}}" target="_blank">
+               <i class="fa fa-twitter"></i>
+               </a>
+            </li>
+            {{/hastwitter}}
+            {{#hasgoogleplus}}
+            <li>
+               <a href="{{{hasgoogleplus}}}" target="_blank">
+               <i class="fa fa-google-plus"></i>
+               </a>
+            </li>
+            {{/hasgoogleplus}}
+            {{#haspinterest}}
+            <li>
+               <a href="{{{haspinterest}}}" target="_blank">
+               <i class="fa fa-pinterest"></i>
+               </a>
+            </li>
+            {{/haspinterest}}
+            {{#hasinstagram}}
+            <li>
+               <a href="{{{hasinstagram}}}" target="_blank">
+               <i class="fa fa-instagram"></i>
+               </a>
+            </li>
+            {{/hasinstagram}}
+            {{#hasyoutube}}
+            <li>
+               <a href="{{{hasyoutube}}}" target="_blank">
+               <i class="fa fa-youtube"></i>
+               </a>
+            </li>
+            {{/hasyoutube}}
+            {{#hasflickr}}
+            <li>
+               <a href="{{{hasflickr}}}" target="_blank">
+               <i class="fa fa-flickr"></i>
+               </a>
+            </li>
+            {{/hasflickr}}
+            {{#haswhatsapp}}
+            <li>
+               <a href="{{{haswhatsapp}}}" target="_blank">
+               <i class="fa fa-whatsapp"></i>
+               </a>
+            </li>
+            {{/haswhatsapp}}
+            {{#hasskype}}
+            <li>
+               <a href="{{{hasskype}}}" target="_blank">
+               <i class="fa fa-skype"></i>
+               </a>
+            </li>
+            {{/hasskype}}
+            {{#hasgithub}}
+            <li>
+               <a href="{{{hasgithub}}}" target="_blank">
+               <i class="fa fa-github"></i>
+               </a>
+            </li>
+            {{/hasgithub}}
+         </ul>
+
+             <ul class="top-right col-lg-6 col-md-6 col-sm-12">
+               
+                <li class="nav-item d-flex">
+                  {{>theme_klassroom/reg}}    
+                  {{{ output.user_menu }}}
+               </li>
+               <li class="nav-item">
+               {{{ output.navbar_plugin_output }}}
+            </li>
+               {{#contactnumber}}
+               <li class="contact"><a href="tel:{{{contactnumber}}}"><i class="fa fa-phone" aria-hidden="true"></i>{{{contactnumber}}}</a></li>
+               {{/contactnumber}}
+               
+
+            </ul> 
+      </div>
+   </div>
+</div>
+<div class="fixed-nav-element"></div>
+<div id="nav-main" class="top-page-header">
+   <div class="container">
+      <div class="float-left"><a class="logo" href="{{{ config.wwwroot }}}"><img src="{{{ logourl }}}" alt="logo"></a></div>
+      <nav class="navbar navbar-bootswatch navbar-expand moodle-has-zindex float-right">
+         <a href="{{{ config.wwwroot }}}" class="navbar-brand {{# output.should_display_navbar_logo }}has-logo{{/ output.should_display_navbar_logo }}
+            {{^ output.should_display_navbar_logo }}
+            d-none d-sm-inline
+            {{/ output.should_display_navbar_logo }}
+            ">
+         {{# output.should_display_navbar_logo }}
+         <span class="logo d-none d-sm-inline">
+         <img src="{{output.get_compact_logo_url}}" alt="{{sitename}}">
+         </span>
+         {{/ output.should_display_navbar_logo }}
+         <span class="site-name d-none d-md-inline">{{{ sitename }}}</span>
+         </a>
+         <a class="show-menu" href="#"><i class="fa fa-bars"></i></a>
+         <ul class="pull-left navigation-wrapper">
+            <!-- custom_menu -->
+            {{{ output.custom_menu }}}
+            <!-- page_heading_menu -->
+            {{{ output.page_heading_menu }}}
+         </ul>
+         
+            {{#applynow}}
+            <ul class="pull-right apply">
+               <li>
+                  <a href="{{{applynowurl}}}" class="btn">
+                  {{{applynow}}}
+                  </a>    
+               </li>
+            </ul>
+            {{/applynow}}
+      </nav>
+      <div class="clearfix"></div>
+   </div>
+</div>
+{{>theme_klassroom/colourswitcher}}

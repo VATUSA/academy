@@ -1,0 +1,130 @@
+{{!
+@template theme_klassroom/frontpage
+Admin time setting template.
+klassroom 1-3 column layout template.
+Context variables required for this template:
+* sitename - The name of the site
+* output - The core renderer for the page
+* bodyattributes - attributes for the body tag as a string of html attributes
+* sidepreblocks - HTML for the blocks
+* hasblocks - true if there are blocks on this page
+* regionmainsettingsmenu - HTML for the region main settings menu
+* hasregionmainsettingsmenu - There is a region main settings menu on this page.
+Example context (json):
+{
+"sitename": "Moodle",
+"output": {
+"doctype": "<!DOCTYPE html>",
+"page_title": "Test page",
+"favicon": "favicon.ico",
+"main_content": "
+<h1>Headings make html validators happier</h1>
+"
+},
+"bodyattributes":"",
+"sidepreblocks": "
+<h2>Blocks html goes here</h2>
+",
+"sidepostblocks": "
+<h2>Blocks html goes here</h2>
+",
+"haspreblocks":true,
+"haspostblocks":true
+}
+}}
+{{> theme_klassroom/head }}
+<body {{{ bodyattributes }}}>
+<div id="page-wrapper">
+   <div id="page">
+      {{{ output.standard_top_of_body_html }}}
+      <!-- Start navigation -->
+      {{>theme_klassroom/navbar}}
+      <!-- End navigation -->
+      <!-- Start Slider Section -->
+      {{>theme_klassroom/slider}}
+      <!-- End Slider Section -->
+      <!-- Start announcement Section -->
+      {{>theme_klassroom/announcement}}
+      <!-- End announcement Section -->
+      <!-- Start Welcome Section -->
+      {{>theme_klassroom/welcome}}
+      <!-- End Welcome Section -->
+      <!-- Start Category Section-->
+      {{>theme_klassroom/categories}}
+      <!-- End Category Section-->
+      <!-- Start Custom Section -->
+      {{>theme_klassroom/customsection}}
+      <!-- End Custom Section -->
+      <!-- Start Search Courses Section -->
+      <div class="searchcourses">
+         <div class="container">
+         </div>
+      </div>
+      <!-- End Search Courses Section -->  
+      <!-- Start All Courses Section -->
+      <div id="allcourses">
+         <div class="container">
+         </div>
+      </div>
+      <!-- End All Courses Section -->
+      <!-- Start Site Announcements Section -->
+      {{>theme_klassroom/sitenews}}
+      <!-- End Site Announcements Section -->
+      <!-- Start Marketing section -->
+      {{#displaymarketingsection}}
+      <div class="marketingsection">
+         <div class="container">
+            {{#marketingheading}}
+            <h3>{{{marketingheading}}}</h3>
+            {{/marketingheading}}
+         </div>
+      </div>
+      {{/displaymarketingsection}}
+      <!-- End Marketing section -->
+      <!-- Start Enrolled Courses section -->    
+      <div id="enrolledcourses">
+         <div class="container">
+         </div>
+      </div>
+      <!-- End Enrolled Courses section -->
+      <!-- Start Events Section -->
+      {{>theme_klassroom/events}}
+      <!-- End Events Section -->
+      <!-- Start Project Section -->
+      {{>theme_klassroom/projects}}
+      <!-- End Project Section -->
+      <!-- Start Photo Gallery Section -->
+      {{>theme_klassroom/photogallery}}
+      <!-- End Photo Gallery Section -->
+      <!-- Start Tutors Section -->
+      {{>theme_klassroom/tutors}}
+      <!-- End Tutors Section -->
+      <div id="page-content">
+         <div class="container">
+            <div id="region-main-box" class="region-main">
+               {{#hasregionmainsettingsmenu}}
+               <div id="region-main-settings-menu" class="d-print-none {{#hasblocks}}has-blocks{{/hasblocks}}">
+                  <div> {{{ output.region_main_settings_menu }}} </div>
+               </div>
+               {{/hasregionmainsettingsmenu}}
+               <section id="region-main" class="region-main-content" aria-label="{{#str}}content{{/str}}">
+                  {{#hasregionmainsettingsmenu}}
+                  <div class="region_main_settings_menu_proxy"></div>
+                  {{/hasregionmainsettingsmenu}}
+                  {{{ output.course_content_header }}}
+                  {{{ output.main_content }}}
+                  {{{ output.activity_navigation }}}
+                  {{{ output.course_content_footer }}}
+               </section>
+            </div>
+         </div>
+      </div>
+      {{{ output.standard_after_main_region_html }}}
+      {{> theme_klassroom/footer }}
+   </div>
+</div>
+</body>
+</html>
+{{#js}}
+require(['theme_boost/loader']);
+{{/js}}
