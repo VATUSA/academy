@@ -10,13 +10,13 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     rm composer-setup.php && \
     composer.phar install --no-dev --no-scripts
 
-RUN cp /var/run/secrets/config.php /var/www/moodle/
-
 RUN chown -R www-data:www-data /var/www && \
+    service apache2 stop && \
     a2ensite academy.* && \
+    echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
     a2dissite 000-default && \
-    a2enmod rewrite && \
-    service apache2 restart
+    a2enmod rewrite
 
 EXPOSE 80
-CMD ["apachectl", "-D", "FOREGROUND"]
+
+ENTRYPOINT ["/bin/sh", "build.sh"]
