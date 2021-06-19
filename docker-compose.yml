@@ -1,0 +1,9 @@
+version: '2'
+services:
+  moodle:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: vatusa/academy
+    ports:
+      - 80:80
