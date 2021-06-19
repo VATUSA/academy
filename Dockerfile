@@ -10,6 +10,8 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     rm composer-setup.php && \
     composer.phar install --no-dev --no-scripts
 
+RUN cp /var/run/secrets/config.php /var/www/moodle/
+
 RUN chown -R www-data:www-data /var/www && \
     a2ensite academy.* && \
     a2dissite 000-default && \
