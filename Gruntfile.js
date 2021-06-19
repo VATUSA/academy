@@ -122,9 +122,10 @@ const registerStyleLintTasks = (grunt, files, fullRunDir) => {
     if (hasScss) {
         scssTasks.unshift('stylelint:scss');
     }
+    scssTasks.unshift('ignorefiles');
     grunt.registerTask('scss', scssTasks);
 
-    const cssTasks = [];
+    const cssTasks = ['ignorefiles'];
     if (hasCss) {
         cssTasks.push('stylelint:css');
     }
@@ -424,7 +425,7 @@ module.exports = function(grunt) {
             '*/**/yui/src/*/meta/',
             '*/**/build/',
         ].concat(thirdPartyPaths);
-        grunt.file.write('.eslintignore', eslintIgnores.join('\n'));
+        grunt.file.write('.eslintignore', eslintIgnores.join('\n') + '\n');
 
         // Generate .stylelintignore.
         const stylelintIgnores = [
@@ -433,7 +434,7 @@ module.exports = function(grunt) {
             'theme/boost/style/moodle.css',
             'theme/classic/style/moodle.css',
         ].concat(thirdPartyPaths);
-        grunt.file.write('.stylelintignore', stylelintIgnores.join('\n'));
+        grunt.file.write('.stylelintignore', stylelintIgnores.join('\n') + '\n');
     };
 
     /**
@@ -845,7 +846,7 @@ module.exports = function(grunt) {
     grunt.registerTask('ignorefiles', 'Generate ignore files for linters', tasks.ignorefiles);
     grunt.registerTask('watch', 'Run tasks on file changes', tasks.watch);
     grunt.registerTask('yui', ['eslint:yui', 'shifter']);
-    grunt.registerTask('amd', ['eslint:amd', 'babel']);
+    grunt.registerTask('amd', ['ignorefiles', 'eslint:amd', 'babel']);
     grunt.registerTask('js', ['amd', 'yui']);
 
     // Register CSS tasks.
