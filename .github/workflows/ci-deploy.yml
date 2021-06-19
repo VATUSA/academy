@@ -33,7 +33,6 @@ jobs:
           docker push vatusa/academy:latest
 
       - name: Deploy to Kubernetes Cluster
-        if: contains(github.ref, 'master')
         uses: actions-hub/kubectl@master
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
