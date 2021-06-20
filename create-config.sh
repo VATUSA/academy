@@ -5,30 +5,30 @@ DOLLAR='$'
 cat > config.php << EOF
 <?php  // Moodle configuration file
 
-unset($CFG);
-global $CFG;
-$CFG = new stdClass();
+unset(${DOLLAR}CFG);
+global ${DOLLAR}CFG;
+${DOLLAR}CFG = new stdClass();
 
-$CFG->dbtype    = 'mariadb';
-$CFG->dblibrary = 'native';
-$CFG->dbhost    = '${DOLLAR}DB_HOST';
-$CFG->dbname    = '${DOLLAR}DB_NAME';
-$CFG->dbuser    = '${DOLLAR}DB_USERNAME';
-$CFG->dbpass    = '${DOLLAR}DB_PASSWORD';
-$CFG->prefix    = 'mdl_';
-$CFG->dboptions = array (
+${DOLLAR}CFG->dbtype    = 'mariadb';
+${DOLLAR}CFG->dblibrary = 'native';
+${DOLLAR}CFG->dbhost    = '$DB_HOST';
+${DOLLAR}CFG->dbname    = '$DB_NAME';
+${DOLLAR}CFG->dbuser    = '$DB_USERNAME';
+${DOLLAR}CFG->dbpass    = '$DB_PASSWORD';
+${DOLLAR}CFG->prefix    = 'mdl_';
+${DOLLAR}CFG->dboptions = array (
     'dbpersist' => 0,
     'dbport' => '',
     'dbsocket' => '',
     'dbcollation' => 'utf8mb4_general_ci',
 );
 
-$CFG->wwwroot   = '${DOLLAR}URL';
-$CFG->sslproxy = true;
-$CFG->dataroot  = '/var/www/moodledata';
-$CFG->admin     = 'admin';
+${DOLLAR}CFG->wwwroot   = '$URL';
+${DOLLAR}CFG->sslproxy = true;
+${DOLLAR}CFG->dataroot  = '/var/www/moodledata';
+${DOLLAR}CFG->admin     = 'admin';
 
-$CFG->directorypermissions = 0777;
+${DOLLAR}CFG->directorypermissions = 0777;
 
 require_once(__DIR__ . '/lib/setup.php');
 
