@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cp /var/run/secrets/config.php /var/www/moodle/config.php
+sh create-config.sh
 chown www-data:www-data config.php
 chmod 400 config.php
 
