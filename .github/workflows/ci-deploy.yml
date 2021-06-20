@@ -37,4 +37,4 @@ jobs:
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
         with:
-          args: rollout restart daemonset/academy -n web
+          args: rollout restart deployment/academy -n web
