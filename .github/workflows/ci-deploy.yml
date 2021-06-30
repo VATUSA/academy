@@ -17,6 +17,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      - name: Set outputs
+        id: vars
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
 
       - name: Build Docker Image
         run: docker-compose build --no-cache
@@ -29,12 +33,19 @@ jobs:
 
       - name: Push to Docker Hub (Master)
         run: |
-          docker tag vatusa/academy vatusa/academy:latest
-          docker push vatusa/academy:latest
+          docker tag vatusa/academy vatusa/academy:${{ steps.vars.outputs.sha_short }}
+          docker push vatusa/academy:${{ steps.vars.outputs.sha_short }}
 
-      - name: Deploy to Kubernetes Cluster
+      - name: Deploy to Kubernetes Cluster - Update Deployment
         uses: actions-hub/kubectl@master
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
         with:
-          args: rollout restart deployment/academy -n web
+          args: set image deployment/academy *=vatusa/academy:${{ steps.vars.outputs.sha_short }} -n web
+      
+      - name: Deploy to Kubernetes Cluster - Update Cron Job
+        uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+        with:
+          args: set image cronjob/academy-cron *=vatusa/academy:${{ steps.vars.outputs.sha_short }} -n web
