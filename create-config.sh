@@ -29,6 +29,7 @@ ${DOLLAR}CFG->dataroot  = '/var/www/moodledata';
 ${DOLLAR}CFG->admin     = 'admin';
 
 ${DOLLAR}CFG->directorypermissions = 0777;
+${DOLLAR}CFG->preventexecpath = true;
 
 require_once(__DIR__ . '/lib/setup.php');
 
