@@ -68,7 +68,6 @@ function filter_html5avtomp4_processjobs(?int $jobid = null, ?bool $displaytrace
         if ($displaytrace) {
             mtrace('found ' . count($jobs) . ' jobs');
         }
-
     }
 
     while ($job = array_shift($jobs)) {
@@ -171,6 +170,10 @@ function filter_html5avtomp4_processjobs(?int $jobid = null, ?bool $displaytrace
             return;
         }
         unlink($tmpoutputfilepath); // not needed anymore
+
+        if (get_config('filter_html5avtomp4', 'deleteoriginalfiles') == true) {
+            $inputfile->delete();
+        }
 
         $job->status = FILTER_HTML5AVTOMP4_JOBSTATUS_DONE;
         $DB->update_record('filter_html5avtomp4_jobs', $job);

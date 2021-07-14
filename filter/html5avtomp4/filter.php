@@ -51,7 +51,7 @@ class filter_html5avtomp4 extends moodle_text_filter {
             return $text;
         }
 
-        $pattern = '/(<(audio|video)[^>]+>)[^<]*(<source src="[^"]+"[^>]*>[^<]+?)+?[^<]*(<\/\2>)/sU';
+        $pattern = '/(<(audio|video)[^>]*>)[^<]*(<source src="[^"]+"[^>]*>)+[^<]*(<\/\2>)/sU';
         $text = preg_replace_callback($pattern, 'filter_html5avtomp4_checksources', $text);
 
         return $text;
@@ -81,7 +81,7 @@ function filter_html5avtomp4_checksources($matches) {
     $type = preg_replace('/[^a-z]/', '', strtolower($tag_close)); // 'audio' or 'video'
 
     $source_tags = $matches;
-    $extra_source_tags = [];
+    $result_source_tags = [];
 
     if (count($source_tags) > 1) {
         // there are several source tags, we therefore assume it's sufficient
@@ -116,9 +116,7 @@ function filter_html5avtomp4_checksources($matches) {
     $filearea = clean_param(array_shift($filepathargs), PARAM_AREA);
     $inputfilename = clean_param(array_pop($filepathargs), PARAM_FILE);
 
-    $outputfile_ext = ($type == 'audio')
-            ? 'm4a'
-            : 'mp4';
+    $outputfile_ext = ($type == 'audio') ? 'm4a' : 'mp4';
     $outputfilename = preg_replace('/\.' . $src_fileextension . '/i', '.' . $outputfile_ext, $inputfilename);
 
     $inputfile = null;
@@ -138,7 +136,7 @@ function filter_html5avtomp4_checksources($matches) {
         }
     }
 
-    if (is_null($inputfile)) {
+    if (is_null($inputfile) && is_null($outputfile)) {
         // could not find input file, abort
         return $fullmatch;
     }
@@ -168,12 +166,16 @@ function filter_html5avtomp4_checksources($matches) {
     else {
         // we're good to display the MP4 :))
 
-        $extra_source_tags = [
-                '<source src="' . str_replace($inputfilename, $outputfilename, $src_url) . '" type="' . $outputfile->get_mimetype() . '">'
-        ];
+        if (!is_null($inputfile)) {
+            // We need to check for $inputfile in case it has been deleted.
+            $result_source_tags[] = '<source src="' . $src_url . '" type="' . $inputfile->get_mimetype() . '">';
+        }
+
+        $result_source_tags[] = '<source src="' . str_replace($inputfilename, $outputfilename,
+                        $src_url) . '" type="' . $outputfile->get_mimetype() . '">';
     }
 
-    $alltags = array_merge([$tag_open], [$source_tag], $extra_source_tags, [$tag_close]);
+    $alltags = array_merge([$tag_open], $result_source_tags, [$tag_close]);
 
     return implode("\n", $alltags);
 }
