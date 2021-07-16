@@ -9,7 +9,7 @@ unset(${DOLLAR}CFG);
 global ${DOLLAR}CFG;
 ${DOLLAR}CFG = new stdClass();
 
-${DOLLAR}CFG->dbtype    = 'mysql';
+${DOLLAR}CFG->dbtype    = 'mysqli';
 ${DOLLAR}CFG->dblibrary = 'native';
 ${DOLLAR}CFG->dbhost    = '$DB_HOST';
 ${DOLLAR}CFG->dbname    = '$DB_NAME';
