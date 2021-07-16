@@ -183,7 +183,8 @@ function message_search_users($courseids, $searchtext, $sort='', $exceptions='')
     }
 
     $fullname = $DB->sql_fullname();
-    $ufields = user_picture::fields('u');
+    $userfieldsapi = \core_user\fields::for_userpic();
+    $ufields = $userfieldsapi->get_sql('u', false, '', '', false)->selects;
 
     if (!empty($sort)) {
         $order = ' ORDER BY '. $sort;
@@ -530,6 +531,20 @@ function translate_message_default_setting($plugindefault, $processorname) {
 }
 
 /**
+ * Return a list of page types
+ *
+ * @param string $pagetype current page type
+ * @param context|null $parentcontext Block's parent context
+ * @param context|null $currentcontext Current context of block
+ * @return array
+ */
+function message_page_type_list(string $pagetype, ?context $parentcontext, ?context $currentcontext): array {
+    return [
+        'message-*' => get_string('page-message-x', 'message'),
+    ];
+}
+
+/**
  * Get messages sent or/and received by the specified users.
  * Please note that this function return deleted messages too. Besides, only individual conversation messages
  * are returned to maintain backwards compatibility.
@@ -549,11 +564,12 @@ function message_get_messages($useridto, $useridfrom = 0, $notifications = -1, $
     global $DB;
 
     // If the 'useridto' value is empty then we are going to retrieve messages sent by the useridfrom to any user.
+    $userfieldsapi = \core_user\fields::for_name();
     if (empty($useridto)) {
-        $userfields = get_all_user_name_fields(true, 'u', '', 'userto');
+        $userfields = $userfieldsapi->get_sql('u', false, 'userto', '', false)->selects;
         $messageuseridtosql = 'u.id as useridto';
     } else {
-        $userfields = get_all_user_name_fields(true, 'u', '', 'userfrom');
+        $userfields = $userfieldsapi->get_sql('u', false, 'userfrom', '', false)->selects;
         $messageuseridtosql = "$useridto as useridto";
     }
 
